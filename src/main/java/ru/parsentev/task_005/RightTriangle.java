@@ -14,7 +14,10 @@ import static java.lang.Math.sqrt;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Реализовать класс прямоугольный треугольник наследуя класс треугольник из задания 3.
+ * Дополнить поведение метода boolean exists() - true, если треугольник равносторонний
+ * (скорее тут опечатка - не равносторонни, а равнобедренный).
+ * Остальное поведение оставить прежним.
  *
  * @author parsentev
  * @since 28.07.2016
@@ -28,6 +31,10 @@ public class RightTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-        return super.exists();
+        double aPow2 = Math.round(Math.pow(first.distanceTo(second), 2));
+        double bPow2 = Math.round(Math.pow(second.distanceTo(third), 2));
+        double cPow2 = Math.round(Math.pow(third.distanceTo(first), 2));
+        return super.exists() && (aPow2 + bPow2 == cPow2
+                || bPow2 + cPow2 == aPow2 || cPow2 + aPow2 == bPow2);
     }
 }
