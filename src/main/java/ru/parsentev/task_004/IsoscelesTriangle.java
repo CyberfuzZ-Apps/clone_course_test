@@ -7,7 +7,9 @@ import ru.parsentev.task_003.Triangle;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Реализовать класс равнобедренный треугольник наследуя класс треугольник из задания 3.
+ * Дополнить поведение метода boolean exists() - true, если треугольник равнобедренный.
+ * Остальное поведение оставить прежним.
  *
  * @author parsentev
  * @since 28.07.2016
@@ -21,6 +23,9 @@ public class IsoscelesTriangle extends Triangle {
 
     @Override
     public boolean exists() {
-       return super.exists();
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(first);
+        return super.exists() && (a == b || b == c || c == a);
     }
 }
