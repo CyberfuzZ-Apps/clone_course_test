@@ -7,7 +7,8 @@ import ru.parsentev.task_002.Point;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Реализовать класс квадрат основанный на четырех точках Point(x, y).
+ * boolean exists() - проверяет существует ли квадрат или нет.
  *
  * @author parsentev
  * @since 28.07.2016
@@ -28,6 +29,10 @@ public class Square {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(fourth);
+        double d = fourth.distanceTo(first);
+        return a == b && b == c && c == d && d == a;
     }
 }
