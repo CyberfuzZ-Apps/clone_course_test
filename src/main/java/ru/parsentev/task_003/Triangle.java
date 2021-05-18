@@ -7,7 +7,10 @@ import ru.parsentev.task_002.Point;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * TODO: comment
+ * Реализовать класс треугольник. Треугольник должен описываться через точки в системе координат.
+ * Объект треугольник должен иметь методы: boolean exists() - проверяет существует ли треугольник
+ * или нет. double area() - вычисляет площадь треугольника. Если треугольник не существует
+ * выбросить исключение java.lang.IllegalStateException
  *
  * @author parsentev
  * @since 28.07.2016
@@ -26,10 +29,20 @@ public class Triangle {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(first);
+        return a + b > c && b + c > a && c + a > b;
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+        if (!exists()) {
+            throw new IllegalStateException();
+        }
+        double a = first.distanceTo(second);
+        double b = second.distanceTo(third);
+        double c = third.distanceTo(first);
+        double p = (a + b + c) / 2;
+        return Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
 }
