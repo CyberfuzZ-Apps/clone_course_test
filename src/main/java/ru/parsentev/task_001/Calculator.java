@@ -15,22 +15,18 @@ public class Calculator {
 
     public double getResult() {
         return result;
-        //throw new UnsupportedOperationException();
     }
 
     public void add(double first, double second) {
         result = first + second;
-        //throw new UnsupportedOperationException();
     }
 
     public void substract(double first, double second) {
         result = first - second;
-        //throw new UnsupportedOperationException();
     }
 
     public void multiple(double first, double second) {
         result = first * second;
-        //throw new UnsupportedOperationException();
     }
 
     public void div(double first, double second) {
@@ -38,11 +34,9 @@ public class Calculator {
             throw new IllegalStateException();
         }
         result = first / second;
-        //throw new UnsupportedOperationException();
     }
 
     public void expand(double first, double second) {
         result = Math.pow(first, second);
-        //throw new UnsupportedOperationException();
     }
 }
