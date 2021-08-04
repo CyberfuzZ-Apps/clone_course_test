@@ -1,5 +1,7 @@
 package ru.parsentev.task_009;
 
+import java.util.*;
+
 /**
  * TODO: comment
  *
@@ -14,6 +16,10 @@ public class UniqueChars {
     }
 
     public int unique() {
-        throw new UnsupportedOperationException();
+        Set<Character> set = new HashSet<>();
+        for (int i = 0; i < line.length(); i++) {
+            set.add(line.charAt(i));
+        }
+        return set.size();
     }
 }

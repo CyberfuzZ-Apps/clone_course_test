@@ -21,6 +21,47 @@ public class TicTacToe {
     }
 
     public boolean hasWinner() {
-        throw new UnsupportedOperationException();
+        for (int i = 0; i < values.length; i++) {
+            if (horizontal(i) || vertical(i)) {
+                return true;
+            }
+        }
+        return diagonalLeft() || diagonalRight();
+    }
+
+    public boolean horizontal(int row) {
+        for (int i = 0; i < values[row].length; i++) {
+            if (values[row][i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean vertical(int cell) {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i][cell] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean diagonalLeft() {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i][i] != 1) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean diagonalRight() {
+        for (int i = 0; i < values.length; i++) {
+            if (values[i][values.length - 1 - i] != 1) {
+                return false;
+            }
+        }
+        return true;
     }
 }

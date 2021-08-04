@@ -21,6 +21,14 @@ public class CycleShift {
     }
 
     public int[] shift(int position) {
-        throw new UnsupportedOperationException();
+        int tmp = 0;
+        for (int i = 0; i < position; i++) {
+            tmp = values[values.length - 1];
+            for (int j = values.length - 1; j > 0; j--) {
+                values[j] = values[j - 1];
+            }
+            values[0] = tmp;
+        }
+        return values;
     }
 }

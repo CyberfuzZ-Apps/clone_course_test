@@ -2,6 +2,10 @@ package ru.parsentev.task_010;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
@@ -19,6 +23,19 @@ public class Brackets {
     }
 
     public boolean isCorrect() {
-        throw new UnsupportedOperationException();
+        if (line.charAt(0) != '('
+                || line.charAt(line.length() - 1) != ')') {
+            return false;
+        }
+        int open = 0;
+        int close = 0;
+        for (int i = 0; i < line.length(); i++) {
+            if (line.charAt(i) == ')') {
+                open++;
+            } else {
+                close++;
+            }
+        }
+        return open == close;
     }
 }

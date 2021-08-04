@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
  * @author parsentev
  * @since 28.07.2016
  */
-@Ignore
+
 public class PoolTest {
     @Test
     public void multi() {
@@ -39,5 +39,18 @@ public class PoolTest {
         );
         int result = pool.maxUnion();
         assertThat(result, is(9));
+    }
+
+    @Test
+    public void multi2() {
+        Pool pool = new Pool(
+                new int[][] {
+                        {1, 0, 0},
+                        {1, 1, 0},
+                        {0, 1, 1}
+                }
+        );
+        int result = pool.maxUnion();
+        assertThat(result, is(5));
     }
 }
